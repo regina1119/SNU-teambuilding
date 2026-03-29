@@ -3,6 +3,7 @@ import { Geist_Mono, Inter, Figtree } from "next/font/google"
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
 import { Header } from "@/components/layout/header"
+import { Toaster } from "@/components/ui/sonner"
 import { cn } from "@/lib/utils";
 
 const figtreeHeading = Figtree({subsets:['latin'],variable:'--font-heading'});
@@ -29,6 +30,7 @@ export default function RootLayout({
         <ThemeProvider>
           <Header />
           <main>{children}</main>
+          <Toaster />
         </ThemeProvider>
       </body>
     </html>
