@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { createClient } from "@/lib/supabase/client";
 import { Button } from "@/components/ui/button";
+import { NotificationBell } from "@/components/layout/notification-bell";
 import type { User } from "@supabase/supabase-js";
 
 export function Header() {
@@ -60,12 +61,7 @@ export function Header() {
         <div className="flex items-center gap-3">
           {user ? (
             <>
-              <Link
-                href="/notifications"
-                className="text-sm text-muted-foreground hover:text-foreground"
-              >
-                알림
-              </Link>
+              <NotificationBell />
               <span className="text-sm text-muted-foreground">
                 {user.user_metadata?.name || user.email}
               </span>
