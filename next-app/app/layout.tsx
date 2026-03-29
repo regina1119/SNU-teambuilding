@@ -1,7 +1,8 @@
-import { Geist, Geist_Mono, Inter, Figtree } from "next/font/google"
+import { Geist_Mono, Inter, Figtree } from "next/font/google"
 
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
+import { Header } from "@/components/layout/header"
 import { cn } from "@/lib/utils";
 
 const figtreeHeading = Figtree({subsets:['latin'],variable:'--font-heading'});
@@ -20,12 +21,15 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      lang="en"
+      lang="ko"
       suppressHydrationWarning
       className={cn("antialiased", fontMono.variable, "font-sans", inter.variable, figtreeHeading.variable)}
     >
       <body>
-        <ThemeProvider>{children}</ThemeProvider>
+        <ThemeProvider>
+          <Header />
+          <main>{children}</main>
+        </ThemeProvider>
       </body>
     </html>
   )
